@@ -23,6 +23,23 @@ function theme_customizer_fonts( $wp_customize ) {
     ),
   ));
 
+  $wp_customize->add_setting( 'button_font', array(
+    'capability' => 'edit_theme_options',
+    'default' => 'Open Sans',
+  ));
+
+  $wp_customize->add_control( 'button_font', array(
+    'type' => 'select',
+    'section' => 'theme_fonts', // Add a default or your own section
+    'label' => esc_html__( 'Buttons' ),
+    'choices' => array(
+      'Raleway' => __( 'Raleway' ),
+      'Roboto' => __( 'Roboto' ),
+      'Open Sans' => __( 'Open Sans' ),
+      'Montserrat' => __('Montserrat')
+    ),
+  ));
+
   $wp_customize->add_setting( 'headline_font', array(
     'capability' => 'edit_theme_options',
     'default' => 'Roboto',
@@ -89,7 +106,7 @@ function theme_get_customizer_fonts() {
   $body_font = get_theme_mod( 'body_font', 'Open Sans' );
   if ( ! empty( $body_font ) ) :?> 
     body { 
-      font-family: "<?php echo $body_font; ?>", sans-serif;
+      font-family: "<?php echo $body_font; ?>", sans-serif !important;
     }
   <?php endif;?>
   <?php
@@ -98,6 +115,14 @@ function theme_get_customizer_fonts() {
   if ( ! empty( $headline_font ) ) :?> 
     h1, h2, h3, h4, h5, h6 { 
       font-family: "<?php echo $headline_font; ?>";
+    }
+  <?php endif;?>
+  <?php
+
+  $button_font = get_theme_mod( 'button_font', 'Open Sans' );
+  if ( ! empty( $button_font ) ) :?> 
+    .btn, button { 
+      font-family: "<?php echo $button_font; ?>", sans-serif;
     }
   <?php endif;?>
   <?php

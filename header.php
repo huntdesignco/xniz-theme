@@ -16,7 +16,7 @@
     <div id="admin-bar-filler"></div>
     <?php endif;?>
 
-    <nav id="primary-nav" class="navbar navbar-expand-lg">
+    <nav id="primary-nav" class="navbar navbar-expand-lg bg-light">
       <?php $logo_type = get_theme_mod( 'logo_type' , 'text' ); ?>
 
       <?php if ($logo_type == 'text') :?>
@@ -25,25 +25,56 @@
       <?php else: ?>
       <?php $logo_image = get_theme_mod('logo_image', get_template_directory_uri() . '/images/logo.png'); ?>
       <?php $logo_size = get_theme_mod('logo_size', '150'); ?>
-
       <a class="navbar-brand" href="<?php echo get_site_url(); ?>"><img src="<?php echo $logo_image;?>" alt="logo" style="width: <?php echo $logo_size;?>px"></a>
+      <?php endif;?>
 
-      <?php endif; ?>
+      <?php if (check_for_woocommerce()) : ?>
+      <div class="mobile-search-form">
+        <form class="form-inline" role="search" method="get" action="<?php echo home_url( '/' ); ?>">
+          <div class="input-group">
+            <input class="form-control" type="search" placeholder="Begin your search..." aria-label="Search" value="<?php echo get_search_query() ?>" name="s">
+            <div class="input-group-append">
+              <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <?php endif;?>
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-nav-links" aria-controls="primary-nav-links" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
       </button>
-      <div class="collapse navbar-collapse justify-content-end" id="primary-nav-links">
-        <?php bootstrap_nav(); ?>
 
+      <div class="collapse navbar-collapse <?php echo (!check_for_woocommerce() ? 'justify-content-end' : '');?>" id="primary-nav-links">
+        <?php bootstrap_nav(); ?>
+        
         <?php if (get_option('users_can_register')) : ?>
         <ul class="nav navbar-nav user-controls">
           <?php if (is_user_logged_in()) : ?>
           <li><a class="nav-link" href="/wp-login.php?action=logout">Logout</a></li>
           <?php else :?>
           <li class="<?php echo (basename(show_template()) == 'template-register.php' ? 'menu-item current_page_item active' : 'menu-item'); ?>"><a class="nav-link" href="/register">Register</a></li>
+          <?php if (!check_for_woocommerce()) :?>
           <li class="<?php echo (basename(show_template()) == 'template-login.php' ? 'menu-item current_page_item active' : 'menu-item'); ?>"><a class="nav-link" href="/login">Login</a></li>
           <?php endif;?>
+          <?php endif;?>
         </ul>
+        <?php endif;?>
+        
+        <?php if (check_for_woocommerce()) : ?>
+        <div class="desktop-search-form ml-auto">
+          <form class="form-inline" role="search" method="get" action="<?php echo home_url( '/' ); ?>">
+            <div class="input-group">
+              <input class="form-control" type="search" placeholder="Begin your search..." aria-label="Search" value="<?php echo get_search_query() ?>" name="s">
+              <div class="input-group-append">
+                <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+              </div>
+              <div class="input-group-append">
+                <a href="<?php echo wc_get_cart_url();?>" class="cart"><i class="fas fa-shopping-cart"></i><sup> <?php echo WC()->cart->get_cart_contents_count(); ?></sup></a>
+              </div>
+            </div>
+          </form>
+        </div>
         <?php endif;?>
 
       </div>

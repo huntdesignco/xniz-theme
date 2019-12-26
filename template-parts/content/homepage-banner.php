@@ -16,7 +16,7 @@
       ?>
         <h1><?php echo $hero_headline_text;?></h1>
         <p><?php echo $hero_body_text;?></p>
-        <a href="<?php echo $hero_button_link;?>" class="btn btn-lg btn-hero"><?php echo $hero_button_text;?></a>
+        <a href="<?php echo $hero_button_link;?>" class="btn btn-lg btn-hero shadow-lg"><?php echo $hero_button_text;?></a>
       </div>
     </div>
   </div>

@@ -32,6 +32,7 @@
     wp_enqueue_script( 'popper', get_stylesheet_directory_uri() . '/js/popper.min.js', '' );
     wp_enqueue_script( 'bootstrap', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array( 'jquery', 'popper' ) );
 
+    wp_enqueue_script( 'theme-js', get_stylesheet_directory_uri() . '/js/theme.js', '' );
 
     if (is_front_page()) {
 
@@ -60,9 +61,16 @@
     wp_enqueue_style( 'theme-fonts', get_stylesheet_directory_uri() . '/css/fonts.css' );
     wp_enqueue_style( 'font-awesome', get_stylesheet_directory_uri() . '/css/fontawesome.min.css');
 
+    // woocommerce styles
+    if (check_for_woocommerce()) {
+      wp_enqueue_style( 'theme-woocommerce-styles', get_stylesheet_directory_uri() . '/css/woocommerce.css' );
+      wp_enqueue_script( 'theme-woocommerce-js', get_stylesheet_directory_uri() . '/js/woocommerce.js', '' );
+    }
+
     // customizer colors
     $customizer_colors = theme_get_customizer_colors();
     wp_add_inline_style( 'theme-styles', $customizer_colors );
+    wp_enqueue_style( 'theme-customizer-colors', get_stylesheet_directory_uri() . '/css/customizer-colors.css' );
 
     // customizer banner options
     $customizer_banner_options = theme_get_customizer_banner_options();
@@ -203,7 +211,27 @@
   add_theme_support( 'title-tag' );
   add_theme_support( 'automatic-feed-links' );
   add_post_type_support( 'page', 'excerpt' );
+  
+  add_theme_support( 'wc-product-gallery-zoom' );
+  add_theme_support( 'wc-product-gallery-lightbox' );
+  add_theme_support( 'wc-product-gallery-slider' ); 
 
+  // check if woocommerce is loaded
+  function check_for_woocommerce() {
+    if (!defined('WC_VERSION')) {
+        return false;
+    } else {
+        return true;
+    }
+  }
+  add_action('plugins_loaded', 'check_for_woocommerce');
+
+  // remove [..] from excerpt
+  function trim_excerpt($text) {
+    return str_replace(' [...]', '...', $text);
+  }
+  add_filter('get_the_excerpt', 'trim_excerpt');
+  
   // register main menu and sidebars
   add_action( 'init', 'register_my_menus' );
   add_action( 'init', 'register_my_sidebars' );
@@ -231,5 +259,6 @@
 
   // customizer navbar config
   add_action( 'customize_register', 'theme_customizer_navigation' );
-    
+
+
 ?>

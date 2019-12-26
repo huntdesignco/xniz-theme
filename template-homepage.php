@@ -1,10 +1,12 @@
 <?php
-/* Template Name: Hero Template */
+/* Template Name: Homepage Template */
 ?>
 
-<?php get_template_part( 'template-parts/content/hero', '' ); ?>
-
 <?php get_header(); ?>
+
+<?php get_template_part( 'template-parts/content/homepage-banner', '' ); ?>
+<?php get_template_part( 'template-parts/content/homepage', '' ); ?>
+
 <main class="full-width-page flex-fill">
   <div class="container-fluid">
 
