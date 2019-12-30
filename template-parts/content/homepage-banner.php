@@ -6,7 +6,7 @@
   <div class="hero-overlay">
   <div class="container">
     <div class="row">
-      <div class="col-md-12 text-center">
+      <div class="col-md-12">
       <?php 
         $hero_headline_text = get_theme_mod( 'hero_headline_text', 'Headline lorem ipsum' ); 
         $hero_body_text = get_theme_mod( 'hero_body_text', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.' ); 
@@ -15,7 +15,7 @@
 
       ?>
         <h1><?php echo $hero_headline_text;?></h1>
-        <p><?php echo $hero_body_text;?></p>
+        <p class="body-text"><?php echo $hero_body_text;?></p>
         <a href="<?php echo $hero_button_link;?>" class="btn btn-lg btn-hero shadow-lg"><?php echo $hero_button_text;?></a>
       </div>
     </div>

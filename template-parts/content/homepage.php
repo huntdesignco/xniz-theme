@@ -1,6 +1,3 @@
-<section class="container">
-  <div class="row">
-    <div class="col-md-12">
-    </div>
-  </div>
-</section>
+
+<?php get_template_part( 'template-parts/custom/youtube-videos', '' ); ?>
+<?php get_template_part( 'template-parts/custom/software', '' ); ?>

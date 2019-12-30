@@ -3,7 +3,7 @@
       <?php 
         $footer_html = get_theme_mod('footer_html', '<p class="mb-0">© <strong>Xniz Theme</strong>. All rights reserved.</p>');
       ?>
-
+      <?php get_template_part( 'template-parts/custom/footer', '' ); ?>
       <div id="footer" class="container-fluid" class="border-top">
         <?php echo $footer_html; ?>
       </div>

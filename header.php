@@ -16,7 +16,8 @@
     <div id="admin-bar-filler"></div>
     <?php endif;?>
 
-    <nav id="primary-nav" class="navbar navbar-expand-lg bg-light">
+    <?php $navbar_bg_color = get_theme_mod( 'navbar_bg_color' , 'bg-light' ); ?>
+    <nav id="primary-nav" class="navbar navbar-expand-lg <?php echo $navbar_bg_color;?>">
       <?php $logo_type = get_theme_mod( 'logo_type' , 'text' ); ?>
 
       <?php if ($logo_type == 'text') :?>
@@ -24,8 +25,10 @@
       <a class="navbar-brand" href="<?php echo get_site_url(); ?>"><?php echo $logo_text;?></a>
       <?php else: ?>
       <?php $logo_image = get_theme_mod('logo_image', get_template_directory_uri() . '/images/logo.png'); ?>
-      <?php $logo_size = get_theme_mod('logo_size', '150'); ?>
-      <a class="navbar-brand" href="<?php echo get_site_url(); ?>"><img src="<?php echo $logo_image;?>" alt="logo" style="width: <?php echo $logo_size;?>px"></a>
+      <?php $logo_width = get_theme_mod('logo_width', '25'); ?>
+      <?php $logo_height = get_theme_mod('logo_height', '25'); ?>
+
+      <a class="navbar-brand" href="<?php echo get_site_url(); ?>"><img src="<?php echo $logo_image;?>" alt="logo" style="width: <?php echo $logo_width;?>px; height: <?php echo $logo_height;?>px"></a>
       <?php endif;?>
 
       <?php if (check_for_woocommerce()) : ?>
@@ -45,7 +48,8 @@
         <i class="fas fa-bars"></i>
       </button>
 
-      <div class="collapse navbar-collapse <?php echo (!check_for_woocommerce() ? 'justify-content-end' : '');?>" id="primary-nav-links">
+      <?php $navbar_button_align = get_theme_mod('navbar_button_align', 'justify-content-center'); ?>
+      <div class="<?php echo $navbar_bg_color;?> collapse navbar-collapse <?php echo (!check_for_woocommerce() ? $navbar_button_align : '');?>" id="primary-nav-links">
         <?php bootstrap_nav(); ?>
         
         <?php if (get_option('users_can_register')) : ?>

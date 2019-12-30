@@ -52,16 +52,28 @@ function theme_customizer_logo( $wp_customize ) {
     )
   );
 
-  // Logo size
-  $wp_customize->add_setting('logo_size', array(
+  // Logo Height
+  $wp_customize->add_setting('logo_width', array(
     'capability' => 'edit_theme_options',
-    'default' => '150',
+    'default' => '25',
   ));
 
-  $wp_customize->add_control( 'logo_size', array(
+  $wp_customize->add_control( 'logo_width', array(
     'type' => 'number',
     'section' => 'logo_configuration', // Add a default or your own section
-    'label' => esc_html__( 'Logo Size' )
+    'label' => esc_html__( 'Logo width' )
+  ));
+
+  // Logo Height
+  $wp_customize->add_setting('logo_height', array(
+    'capability' => 'edit_theme_options',
+    'default' => '25',
+  ));
+
+  $wp_customize->add_control( 'logo_height', array(
+    'type' => 'number',
+    'section' => 'logo_configuration', // Add a default or your own section
+    'label' => esc_html__( 'Logo Height' )
   ));
 
 }

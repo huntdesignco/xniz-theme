@@ -20,7 +20,7 @@ $counter = 0
   <i class="fas fa-angle-left fa-3x control left"></i>
     <div class="container">
       <div class="row">
-        <div class="col-md-12 text-center">
+        <div class="col-md-12">
           <h1 style="color: <?php echo get_field('text_color');?>"><?php echo get_field('headline')?></h1>
           
           <?php if (!empty(get_field('description'))) :?>

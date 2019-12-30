@@ -99,7 +99,6 @@ function theme_customizer_fonts( $wp_customize ) {
   ));
 }
 
-
 function theme_get_customizer_fonts() {
   ob_start();
 
