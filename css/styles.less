@@ -1,3 +1,6 @@
+body {
+  overflow-x: hidden;
+}
 html, body {
   scroll-behavior: smooth;
 }
@@ -51,7 +54,19 @@ a {
 #primary-sidebar-1 .gallery-item, #primary-sidebar-2 .gallery-item { 
   display: inline-block; width: 100% !important; 
 }
-
+#top-bar {
+  background-color: #111111;
+  color: #fff;
+  ul { list-style-type: none; padding: 10px; margin: 0; text-align: right; padding-top: 15px; padding-bottom: 15px; }
+  li { display: inline-block; }
+  a {
+    color: #fff;
+    border: none;
+    &:visited, &:active, &:hover { color: #fff; }
+    margin: 0 10px 0 10px;
+    i { font-size: 18px; }
+  }
+}
 #hero, #slider {
   p, h1 {
     text-shadow: 0px 0px 20px rgba(0,0,0,0.35);
@@ -186,6 +201,17 @@ a {
 
 @media (max-width: 575.98px) {
   #slider .slide { background-size: contain; }
+  #top-bar {
+    ul {
+      padding-top: 10px; padding-bottom: 10px;
+      li {
+        a {
+          margin: 0 5px 0 5px;
+          i { font-size: 15px; }
+        }
+      }
+    }
+  }
 }
 @media (max-width: 767.98px) {  }
 @media (max-width: 991.98px) { 

@@ -1,3 +1,6 @@
+body {
+  overflow-x: hidden;
+}
 html,
 body {
   scroll-behavior: smooth;
@@ -71,6 +74,34 @@ a:active {
 #primary-sidebar-2 .gallery-item {
   display: inline-block;
   width: 100% !important;
+}
+#top-bar {
+  background-color: #111111;
+  color: #fff;
+}
+#top-bar ul {
+  list-style-type: none;
+  padding: 10px;
+  margin: 0;
+  text-align: right;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+#top-bar li {
+  display: inline-block;
+}
+#top-bar a {
+  color: #fff;
+  border: none;
+  margin: 0 10px 0 10px;
+}
+#top-bar a:visited,
+#top-bar a:active,
+#top-bar a:hover {
+  color: #fff;
+}
+#top-bar a i {
+  font-size: 18px;
 }
 #hero p,
 #slider p,
@@ -221,6 +252,16 @@ a:active {
 @media (max-width: 575.98px) {
   #slider .slide {
     background-size: contain;
+  }
+  #top-bar ul {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  #top-bar ul li a {
+    margin: 0 5px 0 5px;
+  }
+  #top-bar ul li a i {
+    font-size: 15px;
   }
 }
 @media (max-width: 991.98px) {

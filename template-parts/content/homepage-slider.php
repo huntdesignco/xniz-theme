@@ -1,7 +1,9 @@
 <div id="slider">
 
 <?php 
-$posts = get_posts(array(
+global $post;
+
+$slides = get_posts(array(
 	'posts_per_page'	=> -1,
   'post_type'			=> 'slides',
   'order'         => 'asc'
@@ -10,14 +12,14 @@ $posts = get_posts(array(
 $counter = 0
 ?>
 
-<?php if( $posts ): foreach( $posts as $post ):?>
+<?php if( $slides ): foreach( $slides as $post ):?>
 <?php ++$counter; ?>
 
 <?php setup_postdata( $post );?>
 
 <div class="slide slide-<?php echo $counter;?>" style="background-image: url('<?php the_field('desktop_featured_image');?>');">
   <div class="slider-overlay">
-  <i class="fas fa-angle-left fa-3x control left"></i>
+  <i class="fas fa-angle-left fa-2x control left"></i>
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -34,7 +36,7 @@ $counter = 0
         </div>
       </div>
     </div>
-  <i class="fas fa-angle-right fa-3x control right"></i>
+  <i class="fas fa-angle-right fa-2x control right"></i>
   </div>
 </div>
 
@@ -43,6 +45,3 @@ $counter = 0
 <?php endif; ?>
 
 </div>
-
-
-

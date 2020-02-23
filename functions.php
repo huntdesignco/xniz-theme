@@ -6,6 +6,7 @@
   require_once('customizer/footer.php');
   require_once('customizer/logo.php');
   require_once('customizer/navigation.php');
+  require_once('customizer/social-links.php');
 
   // Bootstrap navigation
   
@@ -25,7 +26,7 @@
     wp_enqueue_style( 'bootstrap-styles',  get_stylesheet_directory_uri() . '/css/bootstrap.min.css' ); 
 
     wp_deregister_script('jquery');
-    wp_register_script('jquery', get_stylesheet_directory_uri() . '/js/jquery-3.3.1.min.js', false, null);
+    wp_register_script('jquery', get_stylesheet_directory_uri() . '/js/jquery-3.4.1.min.js', false, null);
     wp_enqueue_script('jquery');
 
     wp_enqueue_script( 'popper', get_stylesheet_directory_uri() . '/js/popper.min.js', '' );
@@ -260,6 +261,8 @@
   // customizer navbar config
   add_action( 'customize_register', 'theme_customizer_navigation' );
 
+  // customizer social
+  add_action( 'customize_register', 'theme_customizer_social' );
 
   // custom theme functions
   function register_videos() {
@@ -314,4 +317,12 @@
   }
   add_action( 'init', 'register_videos' );
   
+  // Check if ACF is installed
+  add_action( 'admin_notices', 'theme_dependencies' );
+
+  function theme_dependencies() {
+    if ( ! class_exists('ACF') ) {
+      echo '<div class="error"><p>' . __( 'Warning: The theme needs the Advanced Custom Fields pligin to function.', 'my-theme' ) . '</p></div>';
+    }
+  }
 ?>
