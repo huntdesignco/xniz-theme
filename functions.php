@@ -330,7 +330,7 @@
 
   function theme_dependencies() {
     if ( ! class_exists('ACF') ) {
-      echo '<div class="error"><p>' . __( 'Warning: The theme needs the Advanced Custom Fields pligin to function.', 'my-theme' ) . '</p></div>';
+      echo '<div class="error"><p>' . __( 'Warning: The theme needs the Advanced Custom Fields plugin to function.', 'my-theme' ) . '</p></div>';
     }
   }
 ?>
