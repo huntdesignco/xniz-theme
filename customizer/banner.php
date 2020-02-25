@@ -1,7 +1,6 @@
 <?php
 function theme_customizer_banner_options( $wp_customize ) {
 
-
   $wp_customize->add_section( 'static_banner_config' , array(
     'title'      => __( 'Static Hero Configuration', 'xniz' ),
   ));
@@ -9,7 +8,6 @@ function theme_customizer_banner_options( $wp_customize ) {
   $wp_customize->add_section( 'slider_banner_config' , array(
     'title'      => __( 'Slider Configuration', 'xniz' ),
   ));
-
 
   // Slider transition time
   $wp_customize->add_setting('slider_transition_speed', array(
@@ -40,7 +38,6 @@ function theme_customizer_banner_options( $wp_customize ) {
       'slide' => __( 'Slide In/Slide Out' ),
     ),
   ));
-
   
   // Homepage banner configuration
   $wp_customize->add_setting('static_banner_image', array(
@@ -194,7 +191,7 @@ function theme_customizer_banner_options( $wp_customize ) {
   $wp_customize->add_control( 'homepage_banner_mobile_height', array(
     'type' => 'number',
     'section' => 'static_front_page', // Add a default or your own section
-    'label' => esc_html__( 'Home Page Banner Desktop Height' ),
+    'label' => esc_html__( 'Home Page Banner Mobile Height' ),
     'description' => __( 'Enter the size in height of your banner' ),
   ));
 
@@ -206,14 +203,14 @@ function theme_get_customizer_banner_options() {
 
   $desktop_banner_height = get_theme_mod( 'homepage_banner_desktop_height', '540' );
   if ( ! empty( $desktop_banner_height ) ) :?> 
-    #hero, .hero-overlay, #slider, .slider-overlay { min-height: <?php echo $desktop_banner_height; ?>px; }
+    #hero, #hero .hero-overlay, #slider, #slider .slider-overlay { min-height: <?php echo $desktop_banner_height; ?>px; }
   <?php endif;?>
   <?php
 
   $mobile_banner_height = get_theme_mod( 'homepage_banner_mobile_height', '320' );
   if ( ! empty( $mobile_banner_height ) ) :?> 
   @media (max-width: 991.98px) { 
-    #hero, .hero-overlay, #slider, .slider-overlay { min-height: <?php echo $mobile_banner_height; ?>px; }
+    #hero, #hero .hero-overlay, #slider, #slider .slider-overlay { min-height: <?php echo $mobile_banner_height; ?>px; }
   }
   <?php endif;?>
   <?php

@@ -7,6 +7,7 @@
   require_once('customizer/logo.php');
   require_once('customizer/navigation.php');
   require_once('customizer/social-links.php');
+  require_once('customizer/hero.php');
 
   // Bootstrap navigation
   
@@ -76,6 +77,10 @@
     // customizer banner options
     $customizer_banner_options = theme_get_customizer_banner_options();
     wp_add_inline_style( 'theme-styles', $customizer_banner_options );
+
+    // customizer banner options
+    $customizer_hero_options = theme_get_customizer_hero_options();
+    wp_add_inline_style( 'theme-styles', $customizer_hero_options );
 
     // customizer fonts
     $customizer_fonts = theme_get_customizer_fonts();
@@ -248,6 +253,9 @@
 
   // customizer banner options
   add_action( 'customize_register', 'theme_customizer_banner_options' );
+
+  // customizer hero
+  add_action( 'customize_register', 'theme_customizer_hero_options' );
 
   // customizer banner fonts
   add_action( 'customize_register', 'theme_customizer_fonts' );

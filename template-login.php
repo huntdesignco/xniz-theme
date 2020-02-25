@@ -43,7 +43,7 @@
   <div class="container">
     <div id="login-form-container">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-12">
           <h1>Please sign in</h1>
           <form id="login-form" method="post">
             <div class="form-group">

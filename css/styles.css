@@ -29,6 +29,10 @@ a:active {
 :root {
   --jumbotron-padding-y: 3rem;
 }
+main {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
 #footer {
   display: flex;
   justify-content: center;
@@ -121,18 +125,15 @@ a:active {
   cursor: pointer !important;
 }
 #hero,
+#hero-template,
 #slider .slide {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
-#hero.hero-1,
-#slider .slide.hero-1 {
-  background-image: url('../images/hero-4.png');
-}
 .hero-overlay,
 .slider-overlay {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.65);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -194,17 +195,23 @@ a:active {
 #login h1 {
   margin-bottom: 10px;
 }
-#blog-home .pagination {
+.navigation.pagination {
   display: block;
 }
-#blog-home .pagination h2 {
+.navigation.pagination h2 {
   display: none;
 }
-#blog-home .pagination .page-numbers {
-  display: none;
+.navigation.pagination .nav-links ul.page-numbers {
+  padding: 0;
+  list-style-type: none;
 }
-#blog-home .pagination .page-numbers.next,
-#blog-home .pagination .page-numbers.prev {
+.navigation.pagination .nav-links ul.page-numbers li {
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.navigation.pagination .page-numbers.next,
+.navigation.pagination .page-numbers.prev {
   display: block !important;
 }
 #respond textarea {

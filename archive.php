@@ -13,7 +13,13 @@
             </div>
           </div>
           <?php endwhile; ?>
-
+          <?php
+            the_posts_pagination( array(
+              'type'               => 'list',
+              'prev_text'          => __( '<small><i class="fas fa-arrow-left"></i></small>', 'xniz' ),
+              'next_text'          => __( '<small><i class="fas fa-arrow-right"></i></small>', 'xniz' ),
+            ) );
+          ?>
         </div>
       </div>
     </div>

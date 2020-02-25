@@ -1,11 +1,11 @@
 <?php get_header(); ?>
 
+<?php if (is_front_page()) : ?>
+<?php get_template_part( 'template-parts/content/homepage/banner', '' ); ?>
+<?php get_template_part( 'template-parts/content/homepage', '' ); ?>
+<?php endif;?>
+
 <main class="flex-fill <?php echo (function_exists('is_account_page') && is_account_page()  ? 'center-middle' : '');?>">
-  
-  <?php if (is_front_page()) : ?>
-  <?php get_template_part( 'template-parts/content/homepage-banner', '' ); ?>
-  <?php get_template_part( 'template-parts/content/homepage', '' ); ?>
-  <?php endif;?>
 
   <div class="container-fluid">
     <div class="row">

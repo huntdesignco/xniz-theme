@@ -5,15 +5,15 @@
     <div class="row">
       <div class=" col-md-12 col-lg-9">
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post() ?>
-        <h1><?php the_title();?></h1>
-  
-        <h5>Posted by <?php the_author(); ?> - <?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' ago'; ?></h5>
+        <h2 class="mb-0"><?php the_title();?></h2>
+        <p class="mb-3">Posted by <?php the_author(); ?> - <?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' ago'; ?></p>
+
         <?php the_content();?>
         <?php endwhile; ?>
 
         <?php
         	if ( comments_open() || get_comments_number() ) {
-            comment_form(array('class_submit'=>'btn btn-lg btn-primary'));
+            comment_form(array('class_submit'=>'btn btn-primary'));
           }
         ?>
         <?php endif; ?>

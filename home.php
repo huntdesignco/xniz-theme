@@ -15,10 +15,11 @@
           <?php endwhile; ?>
           <?php
             the_posts_pagination( array(
-              'prev_text'          => __( '<-- Previous page', 'xniz' ),
-              'next_text'          => __( 'Next page -->', 'xniz' ),
+              'type'               => 'list',
+              'prev_text'          => __( '<small><i class="fas fa-arrow-left"></i></small>', 'xniz' ),
+              'next_text'          => __( '<small><i class="fas fa-arrow-right"></i></small>', 'xniz' ),
             ) );
-        ?>
+          ?>
         </div>
       </div>
     </div>
