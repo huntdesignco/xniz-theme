@@ -110,7 +110,7 @@ function theme_get_customizer_fonts() {
   <?php endif;?>
   <?php
 
-  $headline_font = get_theme_mod( 'headline_font', 'Raleway' );
+  $headline_font = get_theme_mod( 'headline_font', 'Roboto' );
   if ( ! empty( $headline_font ) ) :?> 
     h1, h2, h3, h4, h5, h6 { 
       font-family: "<?php echo $headline_font; ?>";
