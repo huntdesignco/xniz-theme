@@ -1,8 +1,5 @@
 <?php
 /* Template Name: Register Page */
-?>
-
-<?php 
 
 if ( isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["email"]) && isset($_POST["firstname"]) && isset($_POST["lastname"]) ) {
   $user_login     = esc_attr($_POST["username"]);
@@ -34,11 +31,8 @@ if ( isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["ema
   else { $user_exists = true; }
 }
 ?>
-
 <?php if (!is_user_logged_in()) :?>
-
 <?php get_header(); ?>
-
 <main id="register" class="flex-fill center-middle">
   <div class="container">
     <div id="register-form-container">
@@ -87,7 +81,6 @@ if ( isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["ema
   </div>
 </main>
 <?php get_footer(); ?>
-
 <?php else: ?>
 <?php 
   header("Location: /");

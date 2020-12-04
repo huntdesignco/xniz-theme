@@ -70,18 +70,6 @@
         <div class="<?php echo $navbar_bg_color;?> <?php echo $navbar_class;?> collapse navbar-collapse <?php echo (!check_for_woocommerce() ? $navbar_button_align : '');?>" id="primary-nav-links">
           <?php bootstrap_nav(); ?>
           
-          <?php if (get_option('users_can_register')) : ?>
-          <ul class="nav navbar-nav user-controls">
-            <?php if (is_user_logged_in()) : ?>
-            <li><a class="nav-link" href="/wp-login.php?action=logout">Logout</a></li>
-            <?php else :?>
-            <li class="<?php echo (basename(show_template()) == 'template-register.php' ? 'menu-item current_page_item active' : 'menu-item'); ?>"><a class="nav-link" href="/register">Register</a></li>
-            <?php if (!check_for_woocommerce()) :?>
-            <li class="<?php echo (basename(show_template()) == 'template-login.php' ? 'menu-item current_page_item active' : 'menu-item'); ?>"><a class="nav-link" href="/login">Login</a></li>
-            <?php endif;?>
-            <?php endif;?>
-          </ul>
-          <?php endif;?>
           <?php if (check_for_woocommerce()) : ?>
           <div class="desktop-search-form ml-auto">
             <form class="form-inline" role="search" method="get" action="<?php echo home_url( '/' ); ?>">

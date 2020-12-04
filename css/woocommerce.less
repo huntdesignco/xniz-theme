@@ -83,7 +83,12 @@
   .product-name { font-size: 26px; }
 }
 
-.woocommerce {
+main .woocommerce {
+  max-width: 1024px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block;
+
   .col-1, .col-2 {
     max-width:none;
   }
@@ -114,7 +119,9 @@
     clear:both !important;
   }
   .woocommerce-button { border-radius: 0 !important; }
-  .woocommerce-form-login .woocommerce-form-login__rememberme { display: block; }
+  .woocommerce-form-login {
+    .woocommerce-form-login__rememberme { display: block; }
+  }
 
   .woocommerce-info { 
     border-top-color: var(--primary-color); 
