@@ -29,7 +29,13 @@
       <?php endif;?>
     
       <?php $navbar_bg_color = get_theme_mod( 'navbar_bg_color' , 'bg-light' ); ?>
-      <nav id="primary-nav" class="navbar navbar-expand-lg <?php echo $navbar_bg_color;?>">
+      <?php 
+        if ($navbar_bg_color == 'bg-light') { 
+          $navbar_class = 'navbar-light';
+        }
+        else { $navbar_class = 'navbar-dark'; }
+      ?>
+      <nav id="primary-nav" class="navbar navbar-expand-lg <?php echo $navbar_bg_color;?> <?php echo $navbar_class;?>">
         <?php $logo_type = get_theme_mod( 'logo_type' , 'text' ); ?>
 
         <?php if ($logo_type == 'text') :?>
@@ -61,7 +67,7 @@
         </button>
 
         <?php $navbar_button_align = get_theme_mod('navbar_button_align', 'justify-content-center'); ?>
-        <div class="<?php echo $navbar_bg_color;?> collapse navbar-collapse <?php echo (!check_for_woocommerce() ? $navbar_button_align : '');?>" id="primary-nav-links">
+        <div class="<?php echo $navbar_bg_color;?> <?php echo $navbar_class;?> collapse navbar-collapse <?php echo (!check_for_woocommerce() ? $navbar_button_align : '');?>" id="primary-nav-links">
           <?php bootstrap_nav(); ?>
           
           <?php if (get_option('users_can_register')) : ?>

@@ -27,7 +27,7 @@
     wp_enqueue_style( 'bootstrap-styles',  get_stylesheet_directory_uri() . '/css/bootstrap.min.css' ); 
 
     wp_deregister_script('jquery');
-    wp_register_script('jquery', get_stylesheet_directory_uri() . '/js/jquery-3.4.1.min.js', false, null);
+    wp_register_script('jquery', get_stylesheet_directory_uri() . '/js/jquery-3.5.1.slim.min.js', false, null);
     wp_enqueue_script('jquery');
 
     wp_enqueue_script( 'popper', get_stylesheet_directory_uri() . '/js/popper.min.js', '' );
@@ -60,7 +60,7 @@
     // default styles
     wp_enqueue_style( 'theme-styles', get_stylesheet_directory_uri() . '/css/styles.css' );
     wp_enqueue_style( 'theme-fonts', get_stylesheet_directory_uri() . '/css/fonts.css' );
-    wp_enqueue_style( 'font-awesome', get_stylesheet_directory_uri() . '/css/fontawesome.min.css');
+    wp_enqueue_style( 'font-awesome', get_stylesheet_directory_uri() . '/css/fontawesome/all.min.css');
     wp_enqueue_style( 'custom-theme-styles', get_stylesheet_directory_uri() . '/css/theme.css' );
 
     // woocommerce styles
@@ -272,59 +272,6 @@
   // customizer social
   add_action( 'customize_register', 'theme_customizer_social' );
 
-  // custom theme functions
-  function register_videos() {
-    $labels = array(
-      'name'                => __( 'YouTube Videos', 'Post Type General Name', 'xniz' ),
-      'singular_name'       => __( 'Video', 'Post Type Singular Name', 'xniz' ),
-      'menu_name'           => __( 'YouTube Videos', 'xniz' ),
-      'all_items'           => __( 'All Videos', 'xniz' ),
-      'view_item'           => __( 'View Video', 'xniz' ),
-      'add_new_item'        => __( 'Add New Video', 'xniz' ),
-      'add_new'             => __( 'Add New', 'xniz' ),
-      'edit_item'           => __( 'Edit Video', 'xniz' ),
-      'update_item'         => __( 'Update Video', 'xniz' ),
-      'search_items'        => __( 'Search Video', 'xniz' ),
-      'not_found'           => __( 'Not Found', 'xniz' ),
-      'not_found_in_trash'  => __( 'Not found in Trash', 'xniz' ),
-    );
-   
-    $args = array(
-        'label'               => __( 'videos', 'xniz' ),
-        'description'         => __( 'A list of home YouTube videos', 'xniz' ),
-        'labels'              => $labels,
-        // Features this CPT supports in Post Editor
-        'supports'            => array('custom-fields', 'title'),
-        // You can associate this CPT with a taxonomy or custom taxonomy. 
-        'taxonomies'          => array( 'slides' ),
-        /* A hierarchical CPT is like Pages and can have
-        * Parent and child items. A non-hierarchical CPT
-        * is like Posts.
-        */ 
-        'hierarchical'        => false,
-        'public'              => true,
-        'show_ui'             => true,
-        'show_in_menu'        => true,
-        'show_in_nav_menus'   => true,
-        'show_in_admin_bar'   => true,
-        'menu_position'       => 5,
-        'can_export'          => true,
-        'has_archive'         => false,
-        'exclude_from_search' => true,
-        'publicly_queryable'  => true,
-        'menu_icon'                => 'dashicons-format-video',
-        'capability_type'     => 'page',
-    );
-
-    register_post_type( 'videos', $args );
-  
-    if (class_exists('MultiPostThumbnails')) {
-      MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'secondary-image');
-    }
-
-  }
-  add_action( 'init', 'register_videos' );
-  
   // Check if ACF is installed
   add_action( 'admin_notices', 'theme_dependencies' );
 

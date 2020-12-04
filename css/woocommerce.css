@@ -43,9 +43,6 @@
 #primary-nav .desktop-search-form .cart sup {
   top: -10px;
 }
-#primary-nav .navbar-light {
-  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
-}
 #primary-nav .navbar-light .nav-link {
   color: var(--nav-link-fg-color);
   border-top: solid 3px var(--bg-light-color);
