@@ -1,18 +1,29 @@
 <?php
-if ($_POST) {
+/* Template Name: Custom Search Results */
+?>
+<?php
   $list = array();
   $item = array();
+  $criteria = "";
   foreach($_POST as $key => $value){
     if($value != ''){
-      $item['taxonomy'] = htmlspecialchars($key);
+      $item['taxonomy'] = 'pa_' . htmlspecialchars($key);
       $item['terms'] = htmlspecialchars($value);
       $item['field'] = 'slug';
-      $list[] = $item;
+      $item['operator'] = 'IN';
+      $criteria = $criteria . ' ' . htmlspecialchars($value); 
+      array_push($list, $item);
     }
   }
-  $cleanArray = array_merge(array('relation' => 'AND'), $list);
-  print_r($cleanArray);
-}
+
+  $args = array(
+    'posts_per_page' => -1,
+    'post_type'      => array('product'),
+    'tax_query' => $list,
+  );
+
+  $the_query = new WP_Query( $args );
+
 ?>
 
 <?php get_header(); ?>
@@ -24,14 +35,16 @@ if ($_POST) {
 
         <header class="page-header">
           <h1 class="page-title">
-            <?php printf( __( 'Search Results for: %s', 'xniz' ), get_search_query() ); ?>
+            <?php printf( __( 'Search Results for: %s', 'xniz' ), $criteria ); ?>
           </h1>
         </header>
         <hr>
       </div>
     </div>
-    
-    <?php if (have_posts()) : while(have_posts()) : the_post(); ?>
+
+    <?php if ($the_query->have_posts()) : ?>
+      <?php woocommerce_product_loop_start(); ?>
+      <?php while($the_query->have_posts()) : $the_query->the_post(); ?>
     <?php
       $thumbnail_url = get_the_post_thumbnail_url();
       if ($thumbnail_url == null) {
@@ -61,12 +74,13 @@ if ($_POST) {
       </div>
     </div>
 
-    <?php endwhile; ?>
+    <?php endwhile;?>
     <div class="row pb-4">
       <div class="col-12">
         <?php echo paginate_links(); ?>
       </div>
     </div>
+		<?php woocommerce_product_loop_end(); ?>
 
     <?php else: ?>
     <div class="row">
@@ -76,7 +90,8 @@ if ($_POST) {
       </div>
     </div>
     <?php endif; ?>
-    
+    <?php wp_reset_postdata(); ?>
+
     </div>
   </div>
 </main>

@@ -31,12 +31,14 @@ a:hover {
 #primary-nav .navbar-nav .dropdown-menu .current-menu-item a {
   background-color: var(--nav-active-bg-color);
   color: var(--nav-active-fg-color);
+  font-weight: bold;
 }
 #primary-nav .navbar-nav .current_page_item a:hover,
 #primary-nav .navbar-nav .dropdown-menu .current_page_item a:hover,
 #primary-nav .navbar-nav .dropdown-menu .current-menu-item a {
   background-color: var(--nav-active-bg-color);
   color: var(--nav-active-fg-color);
+  font-weight: bold;
 }
 #primary-nav .navbar-nav .current-menu-parent.dropdown > a,
 #primary-nav .navbar-nav .current-menu-parent.dropdown:focus > a {

@@ -53,7 +53,7 @@
         <div class="mobile-search-form">
           <form class="form-inline" role="search" method="get" action="<?php echo home_url( '/' ); ?>">
             <div class="input-group">
-              <input class="form-control" type="search" placeholder="Begin your search..." aria-label="Search" value="<?php echo get_search_query() ?>" name="s">
+              <input class="form-control" type="search" placeholder="Enter part number..." aria-label="Search" value="<?php echo get_search_query() ?>" name="s">
               <div class="input-group-append">
                 <button class="btn" type="submit"><i class="fas fa-search"></i></button>
               </div>
@@ -69,12 +69,23 @@
         <?php $navbar_button_align = get_theme_mod('navbar_button_align', 'justify-content-center'); ?>
         <div class="<?php echo $navbar_bg_color;?> <?php echo $navbar_class;?> collapse navbar-collapse <?php echo (!check_for_woocommerce() ? $navbar_button_align : '');?>" id="primary-nav-links">
           <?php bootstrap_nav(); ?>
-          
+          <div class="mobile-search-form-2">
+
+          <form class="form-inline" role="search" method="get" action="<?php echo home_url( '/' ); ?>">
+            <div class="input-group">
+              <input class="form-control" type="search" placeholder="Enter part number..." aria-label="Search" value="<?php echo get_search_query() ?>" name="s">
+              <div class="input-group-append">
+                <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+
           <?php if (check_for_woocommerce()) : ?>
           <div class="desktop-search-form ml-auto">
             <form class="form-inline" role="search" method="get" action="<?php echo home_url( '/' ); ?>">
               <div class="input-group">
-                <input class="form-control" type="search" placeholder="Begin your search..." aria-label="Search" value="<?php echo get_search_query() ?>" name="s">
+                <input class="form-control" type="search" placeholder="Enter part number..." aria-label="Search" value="<?php echo get_search_query() ?>" name="s">
                 <div class="input-group-append">
                   <button class="btn" type="submit"><i class="fas fa-search"></i></button>
                 </div>

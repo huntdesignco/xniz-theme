@@ -19,7 +19,8 @@ function theme_customizer_fonts( $wp_customize ) {
       'Raleway' => __( 'Raleway' ),
       'Roboto' => __( 'Roboto' ),
       'Open Sans' => __( 'Open Sans' ),
-      'Montserrat' => __('Montserrat')
+      'Montserrat' => __('Montserrat'),
+      'Poppins' => __('Poppins')
     ),
   ));
 
@@ -36,7 +37,8 @@ function theme_customizer_fonts( $wp_customize ) {
       'Raleway' => __( 'Raleway' ),
       'Roboto' => __( 'Roboto' ),
       'Open Sans' => __( 'Open Sans' ),
-      'Montserrat' => __('Montserrat')
+      'Montserrat' => __('Montserrat'),
+      'Poppins' => __('Poppins')
     ),
   ));
 
@@ -53,7 +55,8 @@ function theme_customizer_fonts( $wp_customize ) {
       'Raleway' => __( 'Raleway' ),
       'Roboto' => __( 'Roboto' ),
       'Open Sans' => __( 'Open Sans' ),
-      'Montserrat' => __('Montserrat')
+      'Montserrat' => __('Montserrat'),
+      'Poppins' => __('Poppins')
     ),
   ));
 
@@ -70,7 +73,8 @@ function theme_customizer_fonts( $wp_customize ) {
       'Raleway' => __( 'Raleway' ),
       'Roboto' => __( 'Roboto' ),
       'Open Sans' => __( 'Open Sans' ),
-      'Montserrat' => __('Montserrat')
+      'Montserrat' => __('Montserrat'),
+      'Poppins' => __('Poppins')
     ),
   ));
 

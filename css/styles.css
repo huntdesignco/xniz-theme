@@ -9,14 +9,6 @@ body,
 #wrapper {
   min-height: 100vh;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  letter-spacing: -1px;
-}
 p {
   font-size: 18px;
   line-height: 35px;
@@ -139,14 +131,6 @@ main {
   justify-content: center;
   padding: 20px;
 }
-.hero-overlay h1,
-.slider-overlay h1 {
-  font-size: 38px;
-}
-.hero-overlay p,
-.slider-overlay p {
-  font-size: 20px;
-}
 .hero-overlay a,
 .slider-overlay a {
   margin-left: auto;
@@ -217,6 +201,11 @@ main {
 #respond textarea {
   width: 100%;
 }
+#search-results .thumbnail {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 .center-middle {
   display: flex;
   justify-content: center;
@@ -242,6 +231,14 @@ main {
 }
 #commentform .comment-form-comment label {
   display: none;
+}
+.section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+.section-small {
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 @media (min-width: 992px) {
   #primary-nav .navbar-nav li a {
@@ -295,12 +292,7 @@ main {
     text-align: center;
     padding: 20px 0 20px 0;
     margin: 0;
-    border-bottom: solid 1px rgba(0, 0, 0, 0.15);
-  }
-  #primary-nav .navbar-nav .nav-item .nav-link,
-  #primary-nav .navbar-nav .dropdown-menu a,
-  #primary-nav .navbar-nav .dropdown-toggle {
-    border-bottom: solid 1px rgba(0, 0, 0, 0.1) !important;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.1);
   }
   #primary-nav .navbar-nav .dropdown-menu {
     border: none;
@@ -315,5 +307,14 @@ main {
   #primary-nav .nav-link {
     font-size: 12px;
     margin: 0 !important;
+  }
+}
+@media (max-width: 575.98px) {
+  #search-results .view-result {
+    width: 100%;
+  }
+  .section {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
   }
 }

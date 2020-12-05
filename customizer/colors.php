@@ -11,6 +11,26 @@ function theme_customizer_colors( $wp_customize ) {
     'label'   => esc_html__( 'Main color', 'xniz' ),
   ) ) );
 
+  // Dark color
+  $wp_customize->add_setting( 'dark_color', array(
+    'default'   => '#1a1917',
+    'transport' => 'refresh',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'dark_color', array(
+    'section' => 'colors',
+    'label'   => esc_html__( 'Dark color', 'xniz' ),
+  ) ) );
+
+  // Main color Foreground
+  $wp_customize->add_setting( 'main_color_fg', array(
+    'default'   => '#ffffff',
+    'transport' => 'refresh',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'main_color_fg', array(
+    'section' => 'colors',
+    'label'   => esc_html__( 'Main color foreground', 'xniz' ),
+  ) ) );
+
   // Secondary color
   $wp_customize->add_setting( 'secondary_color', array(
     'default'   => '#1a1917',
@@ -269,9 +289,21 @@ function theme_get_customizer_colors() {
   :root {
   ';
 
+  $dark_color = get_theme_mod( 'dark_color', '#1a1917' );
+  if ( ! empty( $dark_color ) ) :?>
+    --dark-color: <?php echo sanitize_hex_color($dark_color);?>;
+  <?php endif;?>
+  <?php
+
   $main_color = get_theme_mod( 'main_color', '#d82dc4' );
   if ( ! empty( $main_color ) ) :?>
     --primary-color: <?php echo sanitize_hex_color($main_color);?>;
+  <?php endif;?>
+  <?php
+
+  $main_color_fg = get_theme_mod( 'main_color_fg', '#ffffff' );
+  if ( ! empty( $main_color_fg ) ) :?>
+    --primary-color-fg: <?php echo sanitize_hex_color($main_color_fg);?>;
   <?php endif;?>
   <?php
 

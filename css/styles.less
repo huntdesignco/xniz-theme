@@ -7,9 +7,6 @@ html, body {
 body, #wrapper {
   min-height:100vh;
 }
-h1, h2, h3, h4, h5, h6 { 
-  letter-spacing: -1px;
-}
 p { 
   font-size: 18px;
   line-height: 35px;
@@ -100,14 +97,7 @@ main {
   align-items: center;
   justify-content: center;
   padding: 20px; 
-  
-  h1 { 
-    font-size: 38px; 
-  }
 
-  p { 
-    font-size: 20px;
-  }
   a { 
     margin-left: auto; 
     margin-right: auto; 
@@ -169,7 +159,13 @@ main {
 }
 
 #respond textarea { width: 100%; }
-
+#search-results {
+  .thumbnail {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 .center-middle { 
   display: flex;
   justify-content: center;
@@ -190,6 +186,15 @@ main {
 .btn { border-radius: 0px !important; }
 
 #commentform .comment-form-comment label { display: none; }
+
+.section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+.section-small {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
 
 @media (min-width: 576px) {  }
 @media (min-width: 768px) {  }
@@ -242,10 +247,9 @@ main {
           text-align: center;
           padding: 20px 0 20px 0;
           margin: 0; 
-          border-bottom: solid 1px rgba(0,0,0,0.15);
+          border-bottom: solid 1px rgba(0,0,0,0.10);
         }
       }
-      .nav-item .nav-link, .dropdown-menu a, .dropdown-toggle { border-bottom: solid 1px rgba(0,0,0,0.10) !important; }
       .dropdown-menu { 
         border: none; 
         padding: 0; 
@@ -269,7 +273,17 @@ main {
     }
   }
 }
-@media (max-width: 575.98px) {  }
+@media (max-width: 575.98px) { 
+  #search-results {
+    .view-result {
+      width: 100%;
+    }
+  }
+  .section {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+}
 @media (min-width: 576px) and (max-width: 767.98px) {  }
 @media (min-width: 768px) and (max-width: 991.98px) {  }
 @media (min-width: 992px) and (max-width: 1199.98px) {  }

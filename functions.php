@@ -25,15 +25,13 @@
 
   function theme_assets() {
     wp_enqueue_style( 'bootstrap-styles',  get_stylesheet_directory_uri() . '/css/bootstrap.min.css' ); 
-
+    
     wp_deregister_script('jquery');
-    wp_register_script('jquery', get_stylesheet_directory_uri() . '/js/jquery-3.5.1.slim.min.js', false, null);
+    wp_register_script('jquery', get_stylesheet_directory_uri() . '/js/jquery-3.5.1.min.js', false, null);
     wp_enqueue_script('jquery');
 
     wp_enqueue_script( 'popper', get_stylesheet_directory_uri() . '/js/popper.min.js', '' );
     wp_enqueue_script( 'bootstrap', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array( 'jquery', 'popper' ) );
-
-    wp_enqueue_script( 'theme-js', get_stylesheet_directory_uri() . '/js/theme.js', '' );
 
     if (is_front_page()) {
 
@@ -69,11 +67,6 @@
       wp_enqueue_script( 'theme-woocommerce-js', get_stylesheet_directory_uri() . '/js/woocommerce.js', '' );
     }
 
-    // customizer colors
-    $customizer_colors = theme_get_customizer_colors();
-    wp_add_inline_style( 'theme-styles', $customizer_colors );
-    wp_enqueue_style( 'theme-customizer-colors', get_stylesheet_directory_uri() . '/css/customizer-colors.css' );
-
     // customizer banner options
     $customizer_banner_options = theme_get_customizer_banner_options();
     wp_add_inline_style( 'theme-styles', $customizer_banner_options );
@@ -93,6 +86,11 @@
     // navbar css
     $navbar_css = theme_get_customizer_navigation();
     wp_add_inline_style( 'theme-styles', $navbar_css );
+
+    // customizer colors
+    $customizer_colors = theme_get_customizer_colors();
+    wp_add_inline_style( 'theme-styles', $customizer_colors );
+    wp_enqueue_style( 'theme-customizer-colors', get_stylesheet_directory_uri() . '/css/customizer-colors.css' );
 
   }
 
@@ -275,9 +273,15 @@
   // Check if ACF is installed
   add_action( 'admin_notices', 'theme_dependencies' );
 
+  function theme_js() {
+    wp_enqueue_script( 'theme-js', get_stylesheet_directory_uri() . '/js/theme.js', '' );
+  }
+  add_action('wp_footer','theme_js');
+
   function theme_dependencies() {
     if ( ! class_exists('ACF') ) {
       echo '<div class="error"><p>' . __( 'Warning: This theme needs the Advanced Custom Fields plugin to function.', 'my-theme' ) . '</p></div>';
     }
   }
+
 ?>
